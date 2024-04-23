@@ -14,6 +14,16 @@ const registration = new mongoose.Schema({
       type: String,
       required: true
     },
+    gender: {
+      type: String,
+      required:true,
+      enum: ['male', 'female', 'others']
+    },
+    contact: {
+      type: String,
+      required: true,
+      unique:true
+    },
   });
 
 const user = mongoose.model('user', registration);
