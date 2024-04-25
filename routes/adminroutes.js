@@ -8,6 +8,6 @@ const adminrouter = express.Router()
 adminrouter.post("/checkadminlogin",admincontroller.checkadminlogin)
 adminrouter.get("/viewusers",admincontroller.viewusers)
 adminrouter.delete("/deleteuser/:email",admincontroller.deleteuser)
-
+adminrouter.post("/createsong",admincontroller.createsong)
 
 module.exports = adminrouter
