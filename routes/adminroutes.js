@@ -21,4 +21,6 @@ adminrouter.post("/addsong",admincontroller.addsong)
 adminrouter.get("/viewsongs/:moviename",admincontroller.viewsongs)
 adminrouter.get("/songaudio/:filename",admincontroller.songaudio)
 
+adminrouter.get("/playsong/:songname",admincontroller.playsong)
+
 module.exports = adminrouter

@@ -283,11 +283,23 @@ const viewalbumimg = async (req, res) =>
   }
 };
 
-
-
-  
+const playsong = async (req, res) => 
+{
+  const songname = req.params.songname;
+  try 
+  {
+    const song = await Songs.find({'songname':songname});
+    // console.log(song)
+    res.status(200).json(song);
+  } 
+  catch (error) 
+  {
+    res.status(500).send(error.message);
+  }
+};
+ 
 
    
-  module.exports = {checkadminlogin,viewusers,deleteuser,viewuserprofile,createalbum,viewalbums,albumimage,addsong,songaudio,viewsongs,viewalbumimg}
+  module.exports = {checkadminlogin,viewusers,deleteuser,viewuserprofile,createalbum,viewalbums,albumimage,addsong,songaudio,viewsongs,viewalbumimg,playsong}
 
   
