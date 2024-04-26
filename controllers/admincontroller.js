@@ -65,6 +65,28 @@ const fs = require('fs')
      }
    };
 
+   const viewuserprofile = async (request, response) => 
+   {
+      try 
+      {
+        const email = request.params.email
+        const user = await User.findOne({email})
+        if(user)
+        {
+          response.json(user)
+        }
+        else
+        {
+          return response.status(200).send('User not found with the provided email id');
+        }
+        
+      } 
+      catch (error) 
+      {
+        response.status(500).send(error.message);
+      }
+    };
+
    const imagestorage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './media/images/'); // Destination folder
@@ -137,6 +159,6 @@ const fs = require('fs')
 
 
 
-  module.exports = {checkadminlogin,viewusers,deleteuser,createsong}
+  module.exports = {checkadminlogin,viewusers,deleteuser,viewuserprofile,createsong}
 
   

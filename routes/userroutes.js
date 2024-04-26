@@ -8,5 +8,9 @@ const userrouter = express.Router()
 userrouter.post("/checkuserlogin",usercontroller.checkuserlogin)
 userrouter.post("/insertuser",usercontroller.insertuser)
 userrouter.post("/contact",usercontroller.contactus)
+userrouter.put("/updateuserprofile",usercontroller.updateuserprofile)
+userrouter.get("/userprofile/:email",usercontroller.userprofile)
+
+
 
 module.exports = userrouter
