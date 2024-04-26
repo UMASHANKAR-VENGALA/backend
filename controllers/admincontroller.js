@@ -202,10 +202,10 @@ const fs = require('fs')
       const { moviename, songname, date, singers, image } = req.body;
       const fileName = req.file ? req.file.filename : undefined; // Extracting file name
 
-      // const ext = path.extname(filename).toLowerCase();
-      // let contentType = 'application/octet-stream'; // Default to octet-stream
+      const ext = path.extname(fileName).toLowerCase();
+      let contentType = 'application/octet-stream'; // Default to octet-stream
   
-      // if (ext === '.mp3') {
+      if (ext === '.mp3') {
         const newSong = new Songs({
           moviename,
           songname,
@@ -216,9 +216,9 @@ const fs = require('fs')
       });
       await newSong.save();
       res.status(200).send('Song Added Successfully');
-    // }else{
-    //   res.status(500).send('incorret file format')
-    // }
+    }else{
+      res.status(500).send('incorret file format');
+    }
     });
   } 
   catch (error) 
